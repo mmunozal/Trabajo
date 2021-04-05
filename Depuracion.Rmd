@@ -1,0 +1,35 @@
+---
+title: "Análisis Exploratorio Datos I"
+author: "Grupo de Trabajo 01"
+date: "13/3/2021"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warning = FALSE )
+```
+
+```{r}
+# Cargar la biblioteca o paquete para leer archivos de Excel.
+library(readxl)
+library(tidyverse)
+library(datasets)
+```
+
+```{r}
+# Lectura de la base de datos.
+encuesta <- read.csv("encuesta1.csv")
+```
+
+## Depuración de Datos
+En esta tabla se realizará la depuración de datos que, bajo un criterio objetivo, es determinante en el análisis de datos.
+A los campos que fueron corregidos (Así sea una fila), se le hará la explicación correspondiente en la siguiente tabla comparativa:
+
+```{r}
+#Ordenar datos de menor a mayor según el código de Respuesta
+encuesta <- encuesta[with(encuesta,order(encuesta$Respuesta)),]
+```
